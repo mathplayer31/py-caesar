@@ -25,6 +25,8 @@ def caesar_cipher(text, shift):
         if cipher_number > 122:
             cipher_number = -122 + cipher_number
             cipher_number += 96
+        if cipher_number < 97:
+            cipher_number = 123 - (97 - cipher_number)
         result += chr(cipher_number)
 
 
@@ -33,5 +35,9 @@ def caesar_cipher(text, shift):
     return result
 
 
-cipher_text = caesar_cipher("ContribUteur", 3)
-print(cipher_text)
+
+
+def caesar_decipher(text, shift):
+    return caesar_cipher(text, -shift)
+
+print(caesar_decipher('Oagoag fg hme nuqz', 12))
